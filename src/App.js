@@ -2,7 +2,7 @@ import { BrowserRouter, Link, Routes, Route } from 'react-router-dom'
 
 import { Episode, Homepage, Podcast } from './pages'
 
-const Error404 = () => <h1>Error404</h1>
+const Error404 = () => <h1>Error 404 - Page not found</h1>
 
 const App = () => {
 
@@ -10,7 +10,9 @@ const App = () => {
         <div id="app-container">
             <BrowserRouter>
                 <header>
-                    <h1 id='title'>Podcaster</h1>
+                    <Link to='/'>
+                        <h1 id='title'>Podcaster</h1>
+                    </Link>
                 </header>
 
                 <section>
