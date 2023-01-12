@@ -20,7 +20,9 @@
   "homepage": "https://github.com/simone-rosso/podcaster#readme",
   "dependencies": {
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "react-router": "5.2.0",
+    "react-router-dom": "^6.6.2"
   },
   "devDependencies": {
     "@babel/core": "^7.20.2",
