@@ -1,6 +1,6 @@
 import { BrowserRouter, Link, Routes, Route } from 'react-router-dom'
 
-import { Episode, Homepage, Podcast } from './pages'
+import { Homepage, Podcast } from './pages'
 
 import './App.css'
 
@@ -21,7 +21,7 @@ const App = () => {
                     <Routes>
                         <Route exact path='/' element={<Homepage />} />
                         <Route path='/podcast/:podcastId' element={<Podcast />} />
-                        <Route path='/podcast/:podcastId/episode/:episodeId' element={<Episode />} />
+                        <Route path='/podcast/:podcastId/episode/:episodeId' element={<Podcast />} />
                         <Route path="*" element={<Error404 />} />
                     </Routes>
                 </section>
