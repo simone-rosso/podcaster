@@ -1,0 +1,20 @@
+.card__container {
+    text-align: center;
+    background-color: white;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 18px;
+    white-space: normal;
+    box-shadow: 2px 4px 12px rgb(0 0 0 / 8%);
+    transition: all .3s cubic-bezier(0, 0, .5, 1);
+}
+
+.card__container:hover {
+    box-shadow: 2px 4px 16px rgb(0 0 0 / 16%);
+    transform: scale3d(1.01, 1.01, 1.01);
+}
+
+.card__image_content {
+    border-radius: 50%;
+    height: 115px;
+}

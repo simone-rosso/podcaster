@@ -1,15 +1,19 @@
 import { useEffect, useState } from 'react'
 
+import { PodcastList } from '../../components'
+
+import './style.css'
+
 const MILLISECONDS_IN_DAY = 1000 * 60 * 60 * 24
+const DEFAULT_FEED = { feed: { entry: [] } }
 
 function hasPassedOneDay(day1) {
     return (new Date().getTime() - new Date(day1).getTime()) > MILLISECONDS_IN_DAY
 }
 
-
 export const Homepage = () => {
 
-    const [feed, setFeed] = useState({})
+    const [feed, setFeed] = useState(DEFAULT_FEED)
 
     useEffect(() => {
         const daySinceLastVisit = window.localStorage.getItem('podcaster__last_visit')
@@ -24,12 +28,12 @@ export const Homepage = () => {
             setFeed(data)
             window.localStorage.setItem('podcaster__feed', JSON.stringify(data))
             window.localStorage.setItem('podcaster__last_visit', new Date())
-            console.log('api')
+            console.log('from api')
         }
 
         function getPodcastsFromLocalStorage() {
             setFeed(JSON.parse(window.localStorage.getItem('podcaster__feed')))
-            console.log('ls')
+            console.log('from ls')
         }
 
         (!!daySinceLastVisit || !hasPassedOneDay(daySinceLastVisit))
@@ -38,12 +42,9 @@ export const Homepage = () => {
 
     }, [])
 
-    console.log(feed)
-
     return (
         <div className="homepage__container">
-            <div className="homepage__container_searchbar"></div>
-            <div className="homepage__container_content"></div>
-        </div>
+            <PodcastList podcasts={feed.feed.entry} />
+        </div >
     )
 }

@@ -2,6 +2,8 @@ import { BrowserRouter, Link, Routes, Route } from 'react-router-dom'
 
 import { Episode, Homepage, Podcast } from './pages'
 
+import './App.css'
+
 const Error404 = () => <h1>Error 404 - Page not found</h1>
 
 const App = () => {

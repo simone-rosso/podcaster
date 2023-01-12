@@ -1,0 +1,11 @@
+.homepage__container_content {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    padding-top: 20px;
+}
+
+.homepage__container_searchbar {
+    display: flex;
+    flex-direction: row-reverse;
+}
