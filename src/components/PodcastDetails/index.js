@@ -1,4 +1,4 @@
-import { useParams } from 'react-router-dom'
+import { useParams, Link } from 'react-router-dom'
 
 import './styles.css'
 
@@ -8,27 +8,46 @@ export const PodcastDetails = ({ podcast }) => {
     const EpisodesList = () => {
         return (
             <div className='episodes_list__container'>
-                <div></div>
-                <div>
+                <div className='episodes_list__counter'>Episodes: {podcast.details.trackCount}</div>
+                <div className='episodes_list__table'>
                     <table>
-                        <tr>
-                            <th>Title</th>
-                            <th>Date</th>
-                            <th>Duration</th>
-                        </tr>
-                        {
-                            podcast.episodes.map((episode, index) => {
-                                return (
-                                    <tr key={index}>
-                                        <th>{episode.trackName}</th>
-                                        <th>{new Date(episode.releaseDate).toISOString().split('T')[0]}</th>
-                                        <th>{new Date(episode.trackTimeMillis * 1000).toISOString().slice(11, -5)}</th>
-                                    </tr>
-                                )
-                            })
-                        }
+                        <thead>
+                            <tr>
+                                <th>Title</th>
+                                <th>Date</th>
+                                <th>Duration</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {
+                                podcast.episodes.map((episode, index) => {
+                                    return (
+                                        <tr key={index}>
+                                            <th><Link to={`/podcast/${podcastId}/episode/${episode.trackId}`}>{episode.trackName} </Link> </th>
+                                            <th>{(new Date(episode.releaseDate).toISOString().split('T')[0]).replaceAll('-', '/')}</th>
+                                            <th>{new Date(episode.trackTimeMillis * 1000).toISOString().slice(11, -5)}</th>
+                                        </tr>
+                                    )
+                                })
+                            }
+                        </tbody>
                     </table>
                 </div>
+            </div>
+        )
+    }
+
+    const EpisodeDetails = () => {
+        const selectedEpisode = podcast.episodes.find((episode) => episode.trackId == episodeId)
+        console.log(selectedEpisode)
+        return (
+            <div className='episode_details__container'>
+                <h4 className='episode_details__title'>{selectedEpisode.trackName}</h4>
+                <p>{selectedEpisode.description}</p>
+                <audio controls>
+                    <source src={selectedEpisode.episodeUrl} type="audio/mpeg" />
+                    Your browser does not support the audio element.
+                </audio>
             </div>
         )
     }
@@ -37,7 +56,7 @@ export const PodcastDetails = ({ podcast }) => {
         <div>
             {
                 episodeId
-                    ? <p>{episodeId}</p>
+                    ? <EpisodeDetails />
                     : <EpisodesList />
             }
         </div>

@@ -9,8 +9,14 @@ th {
     border: 1px solid #dddddd;
     text-align: left;
     padding: 8px;
+    font-size: 14px;
 }
 
-tr:nth-child(even) {
-    background-color: #dddddd;
+tbody > tr:nth-child(odd) {
+    background-color: #F8F8F8;
+}
+
+tbody > tr > th {
+    border-top: 1px solid #e3e3e3;
+    font-weight: 500;
 }
