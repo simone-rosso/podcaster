@@ -1,4 +1,4 @@
-import { BrowserRouter, Link, Routes, Route, useLocation } from 'react-router-dom'
+import { Link, Routes, Route, useLocation } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 
 import { Homepage, Podcast } from './pages'
