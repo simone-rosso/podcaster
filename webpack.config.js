@@ -43,6 +43,12 @@ module.exports = (env, argv) => {
             port: 3000,
             historyApiFallback: true,
         },
+        resolve: {
+            alias: {
+                'hooks': path.join(__dirname, 'src/hooks'),
+                'components': path.join(__dirname, 'src/components'),
+            },
+        }
     /*     devtool: 'source-map' */
     }
 }
