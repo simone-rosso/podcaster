@@ -39,7 +39,6 @@ export const PodcastDetails = ({ podcast }) => {
 
     const EpisodeDetails = () => {
         const selectedEpisode = podcast.episodes.find((episode) => episode.trackId == episodeId)
-        console.log(selectedEpisode)
         return (
             <div className='episode_details__container'>
                 <h4 className='episode_details__title'>{selectedEpisode.trackName}</h4>

@@ -3,10 +3,9 @@ import { useState, useEffect } from 'react'
 
 import { Homepage, Podcast } from 'pages'
 
-import './App.css'
+import {Loader, Error} from 'components'
 
-const Error404 = () => <h1>Error 404 - Page not found</h1>
-const Loader = () => <div className="header__loader"><div></div><div></div><div></div></div>
+import './App.css'
 
 const App = () => {
     const location = useLocation()
@@ -42,7 +41,7 @@ const App = () => {
                     <Route exact path='/' element={<Homepage />} />
                     <Route path='/podcast/:podcastId' element={<Podcast />} />
                     <Route path='/podcast/:podcastId/episode/:episodeId' element={<Podcast />} />
-                    <Route path="*" element={<Error404 />} />
+                    <Route path="*" element={<Error />} />
                 </Routes>
             </section>
         </div >

@@ -1,6 +1,7 @@
 import { useParams, Link } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 import { PodcastDetails } from 'components';
+import { useData } from 'hooks'
 
 import './styles.css'
 
@@ -8,9 +9,19 @@ export const Podcast = () => {
     let { podcastId } = useParams();
     const [podcast, setPodcast] = useState()
 
-
     const iTunesUrlForEpisodes = `https://itunes.apple.com/lookup?id=${podcastId}&media=podcast&entity=podcastEpisode&limit=20`
     const iTunesUrlForPodcastDetails = `https://itunes.apple.com/lookup?id=${podcastId}&media=podcast`
+
+    const { data } = useData({
+        urls: [
+            iTunesUrlForEpisodes,
+            iTunesUrlForPodcastDetails
+        ],
+        dependencies: podcastId
+    })
+
+
+
 
     useEffect(() => {
 

@@ -49,7 +49,7 @@ module.exports = (_, argv) => {
                 'components': path.join(__dirname, 'src/components'),
                 'pages': path.join(__dirname, 'src/pages'),
             },
-        }
-    /*     devtool: 'source-map' */
+        },
+        devtool: 'source-map'
     }
 }
