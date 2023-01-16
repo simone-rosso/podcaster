@@ -9,7 +9,7 @@ export const Podcast = () => {
     const [podcast, setPodcast] = useState()
 
 
-    const iTunesUrlForEpisodes = `https://itunes.apple.com/lookup?id=${podcastId}&media=podcast&entity=podcastEpisode&limit=10`
+    const iTunesUrlForEpisodes = `https://itunes.apple.com/lookup?id=${podcastId}&media=podcast&entity=podcastEpisode&limit=20`
     const iTunesUrlForPodcastDetails = `https://itunes.apple.com/lookup?id=${podcastId}&media=podcast`
 
     useEffect(() => {
@@ -32,38 +32,46 @@ export const Podcast = () => {
     }, [podcastId])
 
     return (
-        <div className='podcast__container'>
-            {/*     {podcast ? <>
-                <div className='podcast__info_container'>
-                    <div className='podcast__info_card'>
-                        <div className='podcast__info_card__image'>
-                            <Link to={`/podcast/${podcastId}`}>
-                                <img src={podcast.details.artworkUrl100} />
-                            </Link>
-                        </div>
-                        <div className='podcast__info_card__content'>
-                            <div className='podcast__info_card__content_title' >
+        <>
+            {podcast
+                ? <div className='podcast__container'>
+                    <div className='podcast__info_container'>
+                        <div className='podcast__info_card'>
+                            <div className='podcast__info_card__image'>
                                 <Link to={`/podcast/${podcastId}`}>
-                                    <span>{podcast.details.trackName}</span><br />
-                                </Link>
-                                <Link to={`/podcast/${podcastId}`}>
-                                    <span>by {podcast.details.artistName}</span><br />
+                                    <img src={podcast.details.artworkUrl100} />
                                 </Link>
                             </div>
-                            <div className='podcast__info_card__content_description'>
-                                <span>Description:</span><br />
-                                <span>**description not found</span>
-                            </div>
+                            <div className='podcast__info_card__content'>
+                                <div className='podcast__info_card__content_title' >
+                                    <Link to={`/podcast/${podcastId}`}>
+                                        <h4 className='podcast__info_card__'>{podcast.details.trackName}</h4>
+                                    </Link>
+                                    <Link to={`/podcast/${podcastId}`}>
+                                        <p>by {podcast.details.artistName}</p>
+                                    </Link>
+                                </div>
+                                <div className='podcast__info_card__content_description'>
+                                    <h5>Description:</h5>
+                                    <p>**description not found</p>
+                                </div>
 
+                            </div>
                         </div>
                     </div>
+                    <PodcastDetails podcast={podcast} />
                 </div>
-
-                <PodcastDetails podcast={podcast} />
-            </> : */} <div className='podcast__loading'>
-                {/* <p>Loading</p> */}
-                <div class="lds-ripple"><div></div><div></div></div>
-            </div>{/* } */}
-        </div>
+                : <div className='podcast__loading__container'>
+                    <div className="podcast__spinner">
+                        <span>L</span>
+                        <span>O</span>
+                        <span>A</span>
+                        <span>D</span>
+                        <span>I</span>
+                        <span>N</span>
+                        <span>G</span>
+                    </div>
+                </div>}
+        </>
     )
 }

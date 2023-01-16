@@ -2,7 +2,7 @@ import { useState } from "react"
 
 import { Card } from '../Card'
 
-import './style.css'
+import './styles.css'
 
 export const PodcastList = ({ podcasts }) => {
 

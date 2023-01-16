@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 
 import { PodcastList } from '../../components'
 
-import './style.css'
+import './styles.css'
 
 const MILLISECONDS_IN_DAY = 1000 * 60 * 60 * 24
 const DEFAULT_FEED = { feed: { entry: [] } }

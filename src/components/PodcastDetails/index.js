@@ -43,11 +43,14 @@ export const PodcastDetails = ({ podcast }) => {
         return (
             <div className='episode_details__container'>
                 <h4 className='episode_details__title'>{selectedEpisode.trackName}</h4>
-                <p>{selectedEpisode.description}</p>
-                <audio controls>
-                    <source src={selectedEpisode.episodeUrl} type="audio/mpeg" />
-                    Your browser does not support the audio element.
-                </audio>
+                <div className='episode_details__content'>
+                    <p>{selectedEpisode.description}</p>
+                </div>
+                <div className='episode_details__audio__container'>
+                    <audio controls preload="metadata" src={selectedEpisode.episodeUrl} >
+                        Your browser does not support the audio element.
+                    </audio>
+                </div>
             </div>
         )
     }
