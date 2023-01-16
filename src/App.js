@@ -1,7 +1,7 @@
 import { Link, Routes, Route, useLocation } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 
-import { Homepage, Podcast } from './pages'
+import { Homepage, Podcast } from 'pages'
 
 import './App.css'
 

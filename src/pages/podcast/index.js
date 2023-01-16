@@ -1,6 +1,6 @@
 import { useParams, Link } from 'react-router-dom'
 import { useEffect, useState } from 'react'
-import { PodcastDetails } from '../../components';
+import { PodcastDetails } from 'components';
 
 import './styles.css'
 

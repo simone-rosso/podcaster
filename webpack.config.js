@@ -24,7 +24,7 @@ const ruleForCss = {
 
 const rules = [ruleForJavascript, ruleForCss]
 
-module.exports = (env, argv) => {
+module.exports = (_, argv) => {
     const { mode } = argv
     const isProduction = mode === 'production'
     return {
@@ -47,6 +47,7 @@ module.exports = (env, argv) => {
             alias: {
                 'hooks': path.join(__dirname, 'src/hooks'),
                 'components': path.join(__dirname, 'src/components'),
+                'pages': path.join(__dirname, 'src/pages'),
             },
         }
     /*     devtool: 'source-map' */

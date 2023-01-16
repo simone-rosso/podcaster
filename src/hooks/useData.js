@@ -16,7 +16,7 @@ export const useData = ({
     useEffect(() => {
         const daySinceLastVisit = window.localStorage.getItem(`${element}__last_visit`)
 
-        async function getPodcastsFromAPI() {
+        async function getDataFromAPI() {
             let data
             try {
                 const response = await fetch(url)
@@ -28,13 +28,13 @@ export const useData = ({
             window.localStorage.setItem(`${element}__last_visit`, new Date())
         }
 
-        function getPodcastsFromLocalStorage() {
-            setFeed(JSON.parse(window.localStorage.getItem(`${element}__data`)))
+        function getDataFromLocalStorage() {
+            setData(JSON.parse(window.localStorage.getItem(`${element}__data`)))
         }
 
         (!!daySinceLastVisit || !hasPassedOneDay(daySinceLastVisit))
-            ? getPodcastsFromLocalStorage()
-            : getPodcastsFromAPI()
+            ? getDataFromLocalStorage()
+            : getDataFromAPI()
 
     }, [])
 

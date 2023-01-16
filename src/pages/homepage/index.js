@@ -1,12 +1,8 @@
-import { useEffect, useState } from 'react'
-
 import { PodcastList } from 'components'
 
 import { useData } from 'hooks'
 
 import './styles.css'
-
-const DEFAULT_FEED = { feed: { entry: [] } }
 
 export const Homepage = () => {
 
