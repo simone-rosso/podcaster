@@ -5,7 +5,7 @@ import { Homepage, Podcast } from 'pages'
 
 import {Loader, Error} from 'components'
 
-import './App.css'
+import './app.css'
 
 const App = () => {
     const location = useLocation()
