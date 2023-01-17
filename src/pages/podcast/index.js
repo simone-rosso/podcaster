@@ -2,7 +2,6 @@ import { useParams, Link } from 'react-router-dom'
 import { PodcastDetails } from 'components';
 import { usePodcast } from 'hooks'
 
-
 import './styles.css'
 
 export const Podcast = () => {
@@ -31,9 +30,8 @@ export const Podcast = () => {
                                 </div>
                                 <div className='podcast__info_card__content_description'>
                                     <h5>Description:</h5>
-                                    <p>**description not found</p>
+                                    <p>{podcast.details.description ?? '**description not found'}</p>
                                 </div>
-
                             </div>
                         </div>
                     </div>
