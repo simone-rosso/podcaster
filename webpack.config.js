@@ -45,8 +45,10 @@ module.exports = (_, argv) => {
         },
         resolve: {
             alias: {
-                'hooks': path.join(__dirname, 'src/hooks'),
                 'components': path.join(__dirname, 'src/components'),
+                'constants': path.join(__dirname, 'src/constants'),
+                'helpers': path.join(__dirname, 'src/helpers'),
+                'hooks': path.join(__dirname, 'src/hooks'),
                 'pages': path.join(__dirname, 'src/pages'),
             },
         },

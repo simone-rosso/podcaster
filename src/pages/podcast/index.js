@@ -1,46 +1,13 @@
 import { useParams, Link } from 'react-router-dom'
-import { useEffect, useState } from 'react'
 import { PodcastDetails } from 'components';
-import { useData } from 'hooks'
+import { usePodcast } from 'hooks'
+
 
 import './styles.css'
 
 export const Podcast = () => {
     let { podcastId } = useParams();
-    const [podcast, setPodcast] = useState()
-
-    const iTunesUrlForEpisodes = `https://itunes.apple.com/lookup?id=${podcastId}&media=podcast&entity=podcastEpisode&limit=20`
-    const iTunesUrlForPodcastDetails = `https://itunes.apple.com/lookup?id=${podcastId}&media=podcast`
-
-    const { data } = useData({
-        urls: [
-            iTunesUrlForEpisodes,
-            iTunesUrlForPodcastDetails
-        ],
-        dependencies: podcastId
-    })
-
-
-
-
-    useEffect(() => {
-
-        Promise.all([
-            fetch(`https://api.allorigins.win/get?url=${encodeURIComponent(iTunesUrlForPodcastDetails)}`),
-            fetch(`https://api.allorigins.win/get?url=${encodeURIComponent(iTunesUrlForEpisodes)}`)
-        ])
-            .then(([resDetails, resEpisodes]) =>
-                Promise.all([resDetails.json(), resEpisodes.json()])
-            )
-            .then(([dataDetails, dataEpisodes]) => {
-                setPodcast({
-                    details: JSON.parse(dataDetails.contents).results[0],
-                    episodes: JSON.parse(dataEpisodes.contents).results
-                })
-            }
-            )
-
-    }, [podcastId])
+    const { podcast } = usePodcast()
 
     return (
         <>

@@ -1,20 +1,15 @@
 import { useState, useEffect } from "react"
 
+import { hasPassedOneDay } from 'helpers'
 
-const ONE_DAY_IN_MILLISECONDS = 1000 * 60 * 60 * 24
-
-function hasPassedOneDay(day1) {
-    return (new Date().getTime() - new Date(day1).getTime()) > ONE_DAY_IN_MILLISECONDS
-}
-
-export const useData = ({
+export const useFeed = ({
     url, element,
 }) => {
 
     const [data, setData] = useState()
 
     useEffect(() => {
-        const daySinceLastVisit = window.localStorage.getItem(`${element}__last_visit`)
+        const daySinceLastVisit = window.localStorage.getItem(`podcaster__${element}__last_visit`)
 
         async function getPodcastsFromAPI() {
             let data
@@ -24,12 +19,12 @@ export const useData = ({
             } catch (e) { console.error(e) }
 
             setData(data)
-            window.localStorage.setItem(`${element}__data`, JSON.stringify(data))
-            window.localStorage.setItem(`${element}__last_visit`, new Date())
+            window.localStorage.setItem(`podcaster__${element}__data`, JSON.stringify(data))
+            window.localStorage.setItem(`podcaster__${element}__last_visit`, new Date())
         }
 
         function getPodcastsFromLocalStorage() {
-            setData(JSON.parse(window.localStorage.getItem(`${element}__data`)))
+            setData(JSON.parse(window.localStorage.getItem(`podcaster__${element}__data`)))
         }
 
         (!!daySinceLastVisit || !hasPassedOneDay(daySinceLastVisit))

@@ -1,12 +1,12 @@
 import { PodcastList } from 'components'
 
-import { useData } from 'hooks'
+import { useFeed } from 'hooks'
 
 import './styles.css'
 
 export const Homepage = () => {
 
-    const { data } = useData({
+    const { data } = useFeed({
         url: 'https://itunes.apple.com/us/rss/toppodcasts/limit=100/genre=1310/json',
         element: 'feed'
     })
