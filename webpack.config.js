@@ -1,4 +1,5 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const TerserPlugin = require("terser-webpack-plugin");
 const path = require('path')
 
 const ruleForJavascript = {
@@ -55,6 +56,9 @@ module.exports = (_, argv) => {
         devtool: 'source-map',
         optimization: {
             runtimeChunk: true,
+            minimize: true,
+            minimizer: [new TerserPlugin()],
         },
+        cache: true,
     }
 }
