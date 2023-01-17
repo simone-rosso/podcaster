@@ -52,6 +52,9 @@ module.exports = (_, argv) => {
                 'pages': path.join(__dirname, 'src/pages'),
             },
         },
-        devtool: 'source-map'
+        devtool: 'source-map',
+        optimization: {
+            runtimeChunk: true,
+        },
     }
 }
