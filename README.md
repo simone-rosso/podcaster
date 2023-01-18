@@ -18,4 +18,3 @@ you can see a working example deployed at [my podcaster](https://funny-mochi-e66
 - [Webpack](https://webpack.js.org/) for packaging
 - [React](https://facebook.github.io/react/)  for UI
 - [React Router](https://reactrouter.com/en/main) for SPA routing
-- [Prettier](https://prettier.io/) for formatting code 
